@@ -168,10 +168,46 @@ body {
   gap: 20px;
 }
 .wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box {
+  position: relative;
   width: 1280px;
   height: 226px;
   border-radius: 10px;
   background-color: #f3f4f9;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper {
+  width: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper .vline {
+  width: 3px;
+  height: 226px;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper .line-text {
+  white-space: nowrap;
+  padding: 2px 12px 4px;
+  opacity: 0.5;
+  border-radius: 15px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper.cl1 .vline {
+  background: #6c36fb;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper.cl1 .line-text {
+  border: solid 1px #6c36fb;
+  color: #6c36fb;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper.cl2 .vline {
+  background: #eb0505;
+}
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper.cl2 .line-text {
+  border: solid 1px #eb0505;
+  color: #eb0505;
 }
 .wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .v-bar-wrapper {
   width: 20px;

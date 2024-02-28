@@ -167,10 +167,48 @@ body {
           display: flex;
           gap: 20px;
           .wave-box {
+            position: relative;
             width: 1280px;
             height: 226px;
             border-radius: 10px;
             background-color: #f3f4f9;
+
+            .sync-vline-wrapper {
+              width: 3px;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              align-items: center;
+              position: absolute;
+              .vline {
+                width: 3px;
+                height: 226px;
+              }
+              .line-text {
+                white-space: nowrap;
+                padding: 2px 12px 4px;
+                opacity: 0.5;
+                border-radius: 15px;
+                background-color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              }
+              
+              &.cl1 {
+                .vline {background: #6c36fb;}
+                .line-text {
+                  border: solid 1px #6c36fb;   
+                  color: #6c36fb;               
+                }
+              }
+              &.cl2 {
+                .vline {background: #eb0505;}
+                .line-text {
+                  border: solid 1px #eb0505;   
+                  color: #eb0505;               
+                }
+              }
+            }
           }
           .v-bar-wrapper {
             width: 20px;
