@@ -30,6 +30,52 @@ $(".btn-line-add").on("click", function(){
   $(".edit-wrapper .table-wrapper .cc-table tbody").append(addRow);
 })
 
+function openMsgBox(){ 
+  $("#modal-background").fadeIn(300);  
+  $("#msgBoxModal").show(300);
+  $("body").css("overflow", "hidden");
+}
+
+function openShortcutKey(){ 
+  $("#modal-background").fadeIn(300);  
+  $("#shortcutKeyModal").show(300);
+  $("body").css("overflow", "hidden");
+}
+
+function clickMsgBtn(msg){
+  var strDel = '';
+  var strAdd = '';
+
+  if (msg == 1) {
+    strDel = 'fail';
+    strAdd = 'success';
+  }
+  else {
+    strDel = 'success';
+    strAdd = 'fail';
+  }
+  $("#msgBoxModal").fadeOut(300);
+  $("#msgConfirmModal").removeClass(strDel);
+  $("#msgConfirmModal").addClass(strAdd);
+  $("#msgConfirmModal").show(300).delay(1000).hide(300);
+  $("#modal-background").delay(1300).fadeOut(300);
+  $("body").css("overflow", "hidden");
+}
+
+// background
+$("#modal-background, .close").on('click',function(){      
+  if ($(this).hasClass("close")){
+    $("#modal-background").fadeOut(300);
+    $(".modal-con").fadeOut(300);      
+  }
+});
+
+$(".modal-close").on('click',function(){           
+  $("#modal-background").fadeOut(300);
+  $(".modal-con").fadeOut(300);
+  $('body').css('overflow', 'hidden');      
+});
+
 $(document).on("click", ".edit-wrapper .table-wrapper .cc-table tbody tr", function(){
   $(".edit-wrapper .table-wrapper .cc-table tbody tr").removeClass("on");
   $(".edit-box").css("display","none");

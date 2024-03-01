@@ -172,7 +172,6 @@ body {
   width: 1280px;
   height: 226px;
   border-radius: 10px;
-  background-color: #f3f4f9;
 }
 .wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .wave-box .sync-vline-wrapper {
   width: 3px;
@@ -313,6 +312,37 @@ body {
   box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
   border: solid 1px #e4e1ee;
   background-color: #fff;
+}
+
+#modal-background {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#modal-background {
+  z-index: 10;
+}
+
+.modal-con {
+  z-index: 20;
+}
+
+.modal-con {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 24px;
+  box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+  border: solid 1px #e4e1ee;
+  background-color: #ffffff;
 }
 
 input[type=checkbox] {
@@ -461,6 +491,160 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   border-radius: 50%; /* 핸들 모양을 원모양으로 만들기 위함 */
   background: #00f; /* 슬라이더 핸들 색상 */
   cursor: pointer; /* 슬라이더 핸들에 마우스를 갖다대면 포인터로 변경 */
+}
+
+#msgBoxModal {
+  width: 580px;
+  height: 250px;
+  border: none;
+}
+#msgBoxModal .modal-wrapper {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+#msgBoxModal .modal-wrapper .modal-body {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#msgBoxModal .modal-wrapper .modal-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+#msgBoxModal .modal-wrapper .modal-bottom .btn-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #e4e1ee;
+  flex: 1;
+}
+#msgBoxModal .modal-wrapper .modal-bottom .btn-modal.btn-modal-ok {
+  background: #6c36fb;
+  color: #fff;
+  border-bottom-left-radius: 24px;
+}
+
+#msgConfirmModal {
+  width: 400px;
+  height: 180px;
+  padding-top: 40px;
+}
+#msgConfirmModal.success .msgIcon {
+  content: url(../assets/ic_pop_complete@3x.png);
+}
+#msgConfirmModal.success .msgText::before {
+  content: "저장을 성공하였습니다.";
+}
+#msgConfirmModal.fail .msgIcon {
+  content: url(../assets/ic_pop_alert@3x.png);
+}
+#msgConfirmModal.fail .msgText::before {
+  content: "저장을 실패하였습니다.";
+}
+#msgConfirmModal .msgIcon {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+#msgConfirmModal .msgText {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+}
+
+#shortcutKeyModal {
+  width: 880px;
+  height: 663px;
+}
+#shortcutKeyModal .modal-wrapper {
+  padding: 14px 30px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#shortcutKeyModal .modal-wrapper .modal-top {
+  height: 42px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+}
+#shortcutKeyModal .modal-wrapper .modal-body {
+  display: flex;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 20px;
+}
+#shortcutKeyModal .modal-wrapper .modal-body .charBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: solid 1px #e4e1ee;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table {
+  width: 400px;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e4e1ee;
+  border-bottom: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li .function {
+  width: 180px;
+  padding-left: 20px;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li .keyboard {
+  width: 220px;
+  display: flex;
+  gap: 4px;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li:first-child {
+  height: 36px;
+  background: #121131;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  text-align: center;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li:first-child .keyboard {
+  justify-content: center;
+}
+#shortcutKeyModal .modal-wrapper .modal-body ul.keybox-table li:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom: 1px solid #e4e1ee;
+}
+#shortcutKeyModal .modal-wrapper .modal-bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+#shortcutKeyModal .modal-wrapper .modal-bottom .btn-confirm {
+  padding: 6px 20px 7px;
+  border-radius: 12px;
+  background-color: #6c36fb;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
 }
 
 .bt-toggle {
