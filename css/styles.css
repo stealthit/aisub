@@ -73,6 +73,55 @@ body {
 .wrapper .main-wrapper .media-wrapper {
   width: 450px;
   height: 460px;
+  padding: 20px;
+}
+.wrapper .main-wrapper .media-wrapper .video-box {
+  width: 410px;
+  height: 340px;
+  background: #f3f4f9;
+  display: flex;
+  align-items: center;
+}
+.wrapper .main-wrapper .media-wrapper .video-box video {
+  height: 231px;
+}
+.wrapper .main-wrapper .media-wrapper .video-slider {
+  margin-top: 15px;
+  margin-bottom: 9px;
+}
+.wrapper .main-wrapper .media-wrapper .video-slider .slider {
+  width: 410px;
+  accent-color: #6c36fb;
+}
+.wrapper .main-wrapper .media-wrapper .video-slider input[type=range] {
+  background-image: -moz-linear-gradient(left center, #6c36fb 0%, #6c36fb 15%, #e4e1ee 15%, #e4e1ee 100%);
+}
+.wrapper .main-wrapper .media-wrapper .player-box {
+  display: flex;
+  justify-content: space-between;
+  height: 36px;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .play-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .play-left .play-time {
+  font-size: 16px;
+  font-weight: 500;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .btn-faster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px 7px 12px;
+  border-radius: 8px;
+  border: solid 1px #0ecbec;
+  background-color: #e6fafe;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ecbec;
 }
 .wrapper .main-wrapper .sync-wrapper {
   display: flex;
@@ -148,6 +197,9 @@ body {
   flex-direction: column;
   gap: 17px;
 }
+.wrapper .main-wrapper .sync-wrapper .sync-detail > .slider {
+  width: 1280px;
+}
 .wrapper .main-wrapper .sync-wrapper .sync-detail .h-bar-wrapper {
   height: 20px;
   position: relative;
@@ -208,6 +260,9 @@ body {
   border: solid 1px #eb0505;
   color: #eb0505;
 }
+.wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box > .v-slider > .slider {
+  width: 226px;
+}
 .wrapper .main-wrapper .sync-wrapper .sync-detail .sync-box .v-bar-wrapper {
   width: 20px;
   position: relative;
@@ -233,46 +288,138 @@ body {
   width: 450px;
   height: 430px;
 }
-.wrapper .main-wrapper .list-wrapper .table-wrapper {
-  height: 100%;
-  overflow: auto;
+.wrapper .main-wrapper .list-wrapper .list-table .table-header {
+  display: flex;
 }
-.wrapper .main-wrapper .list-wrapper .table-wrapper table tbody tr td:first-child {
-  padding-left: 20px;
+.wrapper .main-wrapper .list-wrapper .list-table .table-header .col1 {
+  width: 60px;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-header .col2 {
+  width: 390px;
+  justify-content: initial;
+  padding-left: 100px;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-header input[type=checkbox] {
+  border: 2px solid #fff;
+  background: #121131;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-header input[type=checkbox]::before {
+  content: url("../assets/bt_check_white.png");
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li {
+  display: flex;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li .col1 {
+  width: 60px;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li .col2 {
+  width: 90px;
+  justify-content: flex-start;
+}
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li .col3 {
+  width: 300px;
+  justify-content: flex-start;
 }
 .wrapper .main-wrapper .edit-wrapper {
   height: 430px;
   flex: 1;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper {
-  height: 100%;
-  overflow: auto;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header {
+  display: flex;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table thead tr:first-child th:last-child {
-  padding: 0 !important;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header .col1 {
+  width: 115px;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:nth-child(-n+4) {
-  text-align: center;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header .col2 {
+  width: 120px;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child {
-  padding-left: 30px;
-  padding-right: 10px;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header .col3 {
+  width: 120px;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail {
-  height: 42px;
-  width: 100%;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header .col4 {
+  width: 120px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-header .col5 {
+  position: relative;
+  flex: 1;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li {
   position: relative;
   display: flex;
-  justify-content: space-between;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li > div {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .cc-text {
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col1 {
+  width: 115px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col2 {
+  width: 120px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col3 {
+  width: 120px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col4 {
+  width: 120px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 {
+  height: 100%;
+  width: 750px;
+  overflow: hidden;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 .cc-text {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 750px;
   white-space: nowrap;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .tb-btn-group {
-  display: none;
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 .edit-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 1px);
+  width: 500px;
+  height: 120px;
+  padding: 16px 10px 16px 16px;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .tb-btn-group .tb-btn-icon {
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 .edit-box textarea {
+  height: 100%;
+  flex: 1;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: solid 1px #e4e1ee;
+  background-color: #f7f8fe;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li.on {
+  box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+  border: solid 1px #6c36fb;
+  background-color: #e6e1fa;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon {
   width: 28px;
   height: 28px;
   border: solid 1px #6c36fb;
@@ -282,33 +429,18 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .tb-btn-group .tb-btn-icon.btn-tb-up {
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-up {
   background-image: url(../assets/bt_line_add_up@3x.png);
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .tb-btn-group .tb-btn-icon.btn-tb-down {
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-down {
   background-image: url(../assets/bt_line_add_down@3x.png);
 }
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td:last-child .cc-detail .tb-btn-group .tb-btn-icon.btn-tb-delete {
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-delete {
   background-image: url(../assets/bt_line_delete@3x.png);
-}
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr td .edit-box {
-  display: none;
-  position: absolute;
-  width: 400px;
-  height: 100px;
-  top: 100%;
-  padding: 10px;
-  border: solid 1px #e4e1ee;
-  background-color: #fff;
-  z-index: 3;
-}
-.wrapper .main-wrapper .edit-wrapper .table-wrapper table tbody tr.on td:last-child .tb-btn-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .con-box {
+  border-radius: 12px;
   box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
   border: solid 1px #e4e1ee;
   background-color: #fff;
@@ -360,7 +492,7 @@ input[type=checkbox] {
   background: #fff;
 }
 input[type=checkbox]::before {
-  content: url("../assets/bt_check_s.png");
+  content: url("../assets/bt_check.png");
   position: absolute;
   top: 50%;
   left: 50%;
@@ -376,72 +508,11 @@ input[type=checkbox]:hover {
   background-color: rgba(27, 193, 219, 0.1);
 }
 input[type=checkbox]:checked {
-  border-color: #c2c5c8;
   color: #172d5a;
 }
 input[type=checkbox]:checked::before {
   border-radius: 2px;
   transform: scale(1) translate(-50%, -47.5%);
-}
-
-table.cc-table {
-  width: 100%;
-}
-table.cc-table thead {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-}
-table.cc-table thead tr th {
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-}
-table.cc-table thead tr:first-child {
-  height: 46px;
-}
-table.cc-table thead tr:first-child th {
-  background: #121131;
-  vertical-align: middle;
-}
-table.cc-table thead tr:first-child th:last-child {
-  padding-right: 62px;
-}
-table.cc-table thead tr:last-child {
-  height: 12px;
-}
-table.cc-table thead input[type=checkbox] {
-  border: 2px solid #fff;
-  border-radius: 2px;
-  background: transparent;
-}
-table.cc-table thead input[type=checkbox]::before {
-  content: url("../assets/bt_check_white_s.png");
-}
-table.cc-table tbody {
-  font-size: 16px;
-  font-weight: 500;
-  color: #000;
-}
-table.cc-table tbody tr {
-  height: 44px;
-  border: 1px solid #e4e1ee;
-}
-table.cc-table tbody tr td {
-  vertical-align: middle;
-  background-color: #fff;
-}
-table.cc-table tbody tr td:first-child {
-  margin: auto;
-}
-table.cc-table tbody tr td:not(:last-child) {
-  border-right: none;
-}
-table.cc-table tbody tr.on {
-  border: 2px solid #6c36fb;
-}
-table.cc-table tbody tr.on td {
-  background: #e6e1fa;
 }
 
 .v-slider {
@@ -454,7 +525,6 @@ input[type=range][orient=vertical] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 226px;
   height: 6px;
   transform: rotate(90deg);
   top: 110px;
@@ -462,8 +532,9 @@ input[type=range][orient=vertical] {
 }
 
 .slider {
-  -webkit-appearance: none; /* 기본 CSS 스타일을 적용하지 않기 위해서 */
-  width: 1280px; /* 슬라이더 길이 */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* 기본 CSS 스타일을 적용하지 않기 위해서 */
   height: 6px; /* 슬라이더 두께 */
   border-radius: 3px; /* 슬라이더 모서리를 약간 둥글게 */
   background: #e4e1ee; /* 슬라이더 색상 */
@@ -491,6 +562,38 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   border-radius: 50%; /* 핸들 모양을 원모양으로 만들기 위함 */
   background: #00f; /* 슬라이더 핸들 색상 */
   cursor: pointer; /* 슬라이더 핸들에 마우스를 갖다대면 포인터로 변경 */
+}
+
+.table-wrapper .table-header {
+  display: flex;
+  height: 46px;
+  border-radius: 12px;
+  background-color: #121131;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.table-wrapper .table-header > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table-wrapper .v-blank {
+  width: 100%;
+  height: 12px;
+  background: transparent;
+}
+.table-wrapper ul.table-body {
+  height: 372px;
+  overflow: auto;
+}
+.table-wrapper ul.table-body li {
+  display: flex;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+  border: solid 1px #e4e1ee;
+  background-color: #fff;
 }
 
 #msgBoxModal {
@@ -639,7 +742,11 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   justify-content: flex-end;
 }
 #shortcutKeyModal .modal-wrapper .modal-bottom .btn-confirm {
-  padding: 6px 20px 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 37px;
   border-radius: 12px;
   background-color: #6c36fb;
   font-size: 16px;
@@ -673,7 +780,6 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
 .btn-line-add {
   cursor: pointer;
   position: absolute;
-  top: -3px;
   right: 10px;
   content: url(../assets/bt_line_add@3x.png);
   width: 30px;
@@ -686,4 +792,18 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   content: url(../assets/bt_slider@3x.png);
   width: 20px;
   height: 20px;
+}
+
+.btn-play {
+  cursor: pointer;
+  content: url(../assets/bt_player_play@3x.png);
+  width: 36px;
+  height: 36px;
+}
+
+.btn-delete {
+  cursor: pointer;
+  content: url(../assets/bt_delete@3x.png);
+  width: 14px;
+  height: 14px;
 }

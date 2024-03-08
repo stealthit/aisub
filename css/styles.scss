@@ -76,6 +76,69 @@ body {
     .media-wrapper {
       width: 450px;
       height: 460px;
+      padding: 20px;
+
+      .video-box {
+        width: 410px;
+        height: 340px;
+        background: #f3f4f9;
+        display: flex;
+        align-items: center;
+
+        video {
+          height: 231px;
+        }
+      }
+      
+      .video-slider {
+        margin-top: 15px;
+        margin-bottom: 9px;
+        .slider {
+          width: 410px;
+          accent-color: #6c36fb;
+        }        
+
+        input[type=range] {                    
+          background-image: -webkit-gradient(linear,
+              left top, 
+              right top, 
+              color-stop(15%, #6c36fb),
+              color-stop(15%, #e4e1ee));
+          
+          background-image: -moz-linear-gradient(left center,
+              #6c36fb 0%, #6c36fb 15%,
+              #e4e1ee 15%, #e4e1ee 100%);
+        } 
+              
+      }
+
+      .player-box {
+        display: flex;
+        justify-content: space-between;
+        height: 36px;
+
+        .play-left {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          .play-time {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+        .btn-faster {          
+          @include flex_center();
+          padding: 8px 10px 7px 12px;
+          border-radius: 8px;
+          border: solid 1px #0ecbec;
+          background-color: #e6fafe;
+          line-height: 36px;
+          font-size: 14px;
+          font-weight: 500;
+          color: #0ecbec;
+        }
+      }
     }
     .sync-wrapper {
       display: flex;
@@ -150,6 +213,8 @@ body {
         display: flex;
         flex-direction: column;
         gap: 17px;
+
+        & > .slider {width: 1280px;}
         .h-bar-wrapper {
           height: 20px;
           position: relative;
@@ -209,6 +274,7 @@ body {
               }
             }
           }
+          & > .v-slider>.slider {width: 226px;}
           .v-bar-wrapper {
             width: 20px;
             position: relative;
@@ -240,12 +306,27 @@ body {
       width: 450px;
       height: 430px;
 
-      .table-wrapper {
-        height: 100%;
-        overflow: auto;
-        table {
-          tbody tr td{
-            &:first-child {padding-left: 20px;}            
+      .list-table {
+        .table-header {
+          display: flex;
+          .col1 {width: 60px;}
+          .col2 {width: 390px;justify-content: initial;padding-left: 100px;}     
+          
+          input[type="checkbox"] {
+            border: 2px solid #fff;  
+            background: #121131;
+            &::before {
+              content: url("../assets/bt_check_white.png");              
+            }
+          }
+        }
+        .table-body {          
+          li {
+            display: flex;            
+            &>div {display: flex;justify-content: center;align-items: center;}
+            .col1 {width: 60px;}
+            .col2 {width: 90px;justify-content: flex-start;}          
+            .col3 {width: 300px;justify-content: flex-start;}
           }
         }
       }
@@ -254,91 +335,111 @@ body {
     .edit-wrapper {
       height: 430px;
       flex: 1;
+      .cc-table {
+        .table-header {
+          display: flex;
+          .col1 {width: 115px;}
+          .col2 {width: 120px;} 
+          .col3 {width: 120px;}             
+          .col4 {width: 120px;}  
+          .col5 {
+            position: relative;
+            flex: 1;          
+          }
+        } 
+        .table-body {
+          li {
+            position: relative;
+            display: flex;    
+            &>div {display: flex;justify-content: center;align-items: center;}
+            .col1 {width: 115px;}
+            .col2 {width: 120px;} 
+            .col3 {width: 120px;}             
+            .col4 {width: 120px;}  
+            .col5 {
+              height: 100%;
+              width: 750px;
+              overflow: hidden;              
+              // flex: 1;  
+              justify-content: flex-start; 
+              padding-left: 30px; 
+              .cc-text {
+                overflow: hidden;     
+                display: flex;
+                align-items: center; 
+                height: 100%;
+                width: 100%;
+                max-width: 750px;
+                white-space: nowrap;
+              }              
 
-      .table-wrapper {
-        height: 100%;
-        overflow: auto;
-        table {  
-          thead tr {
-            &:first-child th {
-              &:last-child {padding: 0 !important;}
-            }
-          }        
-          tbody tr {
-            td {
-              
-              &:nth-child(-n+4) {
-                text-align: center;
-              }
-              &:last-child {
-                padding-left: 30px;
-                padding-right: 10px;
-                .cc-detail {
-                  height: 42px;
-                  width: 100%;
-                  position: relative;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-  
-                  .cc-text {white-space:nowrap;}
-                  .tb-btn-group {
-                    display: none;
-                    .tb-btn-icon {
-                      width: 28px;
-                      height: 28px;  
-                      border: solid 1px #6c36fb;      
-                      background-color: #fff;
-                      border-radius: 100%;     
-                      background-size: 12px;
-                      background-repeat: no-repeat;
-                      background-position: center;
-                      
-                      &.btn-tb-up {
-                        background-image: url(../assets/bt_line_add_up@3x.png);
-                      }
-                      &.btn-tb-down {
-                        background-image: url(../assets/bt_line_add_down@3x.png);
-                      }
-                      &.btn-tb-delete {
-                        background-image: url(../assets/bt_line_delete@3x.png);
-                      }                    
-                    }
-                  }
-                }
-              }  
-              
               .edit-box {
-                display: none;
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
                 position: absolute;
-                width: 400px;
-                height: 100px;
-                top: 100%;
-                padding: 10px;
-                border: solid 1px #e4e1ee;
-                background-color: #fff;
                 z-index: 3;
+                top: calc(100% + 1px);
+                width: 500px;
+                height: 120px;
+                padding: 16px 10px 16px 16px;
+
+                textarea {
+                  height: 100%;
+                  flex: 1;
+                  padding: 8px 16px;
+                  border-radius: 10px;
+                  border: solid 1px #e4e1ee;
+                  background-color: #f7f8fe;
+                  font-size: 16px;
+                  font-weight: 500;
+                  color: #000;
+                }
               }
             }
 
-            &.on td{              
-              &:last-child {
-                .tb-btn-group {
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
+            &.on {
+              box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+              border: solid 1px #6c36fb;
+              background-color: #e6e1fa;
+            }
+
+            .tb-btn-group {                
+              display: flex;
+              gap: 8px;
+              position: absolute;
+              top: 8px;
+              right: 10px;
+              .tb-btn-icon {
+                width: 28px;
+                height: 28px;  
+                border: solid 1px #6c36fb;      
+                background-color: #fff;
+                border-radius: 100%;     
+                background-size: 12px;
+                background-repeat: no-repeat;
+                background-position: center;
+                
+                &.btn-tb-up {
+                  background-image: url(../assets/bt_line_add_up@3x.png);
                 }
+                &.btn-tb-down {
+                  background-image: url(../assets/bt_line_add_down@3x.png);
+                }
+                &.btn-tb-delete {
+                  background-image: url(../assets/bt_line_delete@3x.png);
+                }                    
               }
             }
           }
-        }
-      }      
+        } 
+      }
     }
   }
 }
 
 .con-box {
-  // border-radius: 12px;
+  border-radius: 12px;
   box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
   border: solid 1px #e4e1ee;
   background-color: #fff;
@@ -380,7 +481,7 @@ input[type="checkbox"] {
   background: #fff;
 
   &::before {
-    content: url("../assets/bt_check_s.png");
+    content: url("../assets/bt_check.png");
     position: absolute;
     top: 50%;
     left: 50%;    
@@ -397,84 +498,12 @@ input[type="checkbox"] {
   }
 
   &:checked {
-    border-color: #c2c5c8;
+    // border-color: #c2c5c8;
     color: #172d5a;
 
     &::before {
       border-radius: 2px;
       transform: scale(1) translate(-50%, -47.5%);
-    }
-  }
-}
-
-// table
-table.cc-table {
-  width: 100%;
-  thead {
-    font-size: 16px;
-    font-weight: bold;  
-    color: #fff;
-    // position: sticky; top: 0px;
-    tr {
-      th {position: sticky; top: 0px;z-index: 1;}
-      &:first-child {
-        height: 46px;    
-        th {      
-          background: #121131; 
-          vertical-align: middle;         
-          &:first-child {
-            // border-radius: 12px 0 0 12px;
-          }
-          &:last-child {
-            // border-radius: 0 12px 12px 0;
-            padding-right: 62px;
-          }
-        }    
-      }
-      &:last-child {
-        height: 12px;
-      }      
-    }
-
-    input[type="checkbox"] {
-      border: 2px solid #fff;
-      border-radius: 2px;
-      background: transparent;
-
-      &::before {
-        content: url("../assets/bt_check_white_s.png");        
-      }
-    }
-  }
-  tbody {
-    font-size: 16px;
-    font-weight: 500;  
-    color: #000;
-    tr {
-      height: 44px;            
-      // box-shadow: 0 0 0 1px #e4e1ee;    
-      border: 1px solid #e4e1ee;
-      // border-radius: 12px;
-      td {  
-        vertical-align: middle;              
-        background-color: #fff;
-        // box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
-        &:first-child {
-          margin: auto;
-          // border-radius: 12px 0 0 12px;          
-        }
-        &:last-child {
-          // border-radius: 0 12px 12px 0;
-        }
-        &:not(:last-child) {
-          border-right: none;
-        }
-      }
-
-      &.on {
-        border: 2px solid #6c36fb;
-        td {background: #e6e1fa;}
-      }
     }
   }
 }
@@ -486,7 +515,7 @@ table.cc-table {
 input[type=range][orient=vertical] {
   position: absolute;
   appearance: none;
-  width: 226px;
+  // width: 226px;
   height: 6px;    
   transform: rotate(90deg);
   top: 110px;
@@ -494,8 +523,8 @@ input[type=range][orient=vertical] {
 }
 
 .slider {
-  -webkit-appearance: none; /* 기본 CSS 스타일을 적용하지 않기 위해서 */
-  width: 1280px; /* 슬라이더 길이 */
+  appearance: none; /* 기본 CSS 스타일을 적용하지 않기 위해서 */
+  // width: 1280px; /* 슬라이더 길이 */
   height: 6px; /* 슬라이더 두께 */
   border-radius: 3px; /* 슬라이더 모서리를 약간 둥글게 */
   background: #e4e1ee; /* 슬라이더 색상 */
@@ -525,7 +554,31 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   cursor: pointer; /* 슬라이더 핸들에 마우스를 갖다대면 포인터로 변경 */
 }
 
-
+.table-wrapper {
+  .table-header {
+    display: flex;
+    height: 46px;        
+    border-radius: 12px;
+    background-color: #121131;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    & > div {@include flex_center();}
+  }
+  .v-blank {width: 100%;height: 12px;background: transparent;}
+  ul.table-body {  
+    height: 372px;  
+    overflow: auto;
+    li {
+      display: flex;
+      height: 44px;      
+      border-radius: 12px;
+      box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+      border: solid 1px #e4e1ee;
+      background-color: #fff;
+    }
+  }
+}
 // modal
 #msgBoxModal {  
   width: 580px;
@@ -666,7 +719,9 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
       display: flex;
       justify-content: flex-end;
       .btn-confirm {
-        padding: 6px 20px 7px;
+        @include flex_center;
+        width: 70px;
+        height: 37px;
         border-radius: 12px;
         background-color: #6c36fb;
         font-size: 16px;
@@ -702,8 +757,7 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
 }
 .btn-line-add {  
   cursor: pointer;
-  position: absolute;
-  top: -3px;
+  position: absolute;  
   right: 10px;
   content: url(../assets/bt_line_add@3x.png);
   width: 30px;
@@ -715,4 +769,16 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   content: url(../assets/bt_slider@3x.png);
   width: 20px;
   height: 20px;  
+}
+.btn-play {  
+  cursor: pointer;    
+  content: url(../assets/bt_player_play@3x.png);
+  width: 36px;
+  height: 36px;  
+}
+.btn-delete {  
+  cursor: pointer;    
+  content: url(../assets/bt_delete@3x.png);
+  width: 14px;
+  height: 14px;  
 }

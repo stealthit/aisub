@@ -1,21 +1,19 @@
-var addRow = '<tr>' +                  
-                '<td></td>' +
-                '<td></td>' +
-                '<td></td>' +
-                '<td></td>' +
-                '<td>' +
-                  '<div class="cc-detail">' +
-                    '<div class="cc-text"></div>' +
-                    '<div class="tb-btn-group">' +
-                      '<button class="tb-btn-icon btn-tb-up"></button>' +
-                      '<button class="tb-btn-icon btn-tb-down"></button>' +
-                      '<button class="tb-btn-icon btn-tb-delete"></button>' +       
-                    '</div>' +
-                    '<div class="edit-box" contenteditable="true"></div>' +                            
-                  '</div>' +
-                '</td>' +
-               '</tr>';
-
+var addRow = '<li>' +
+                '<div class="col1" contenteditable></div>' +
+                '<div class="col2" contenteditable></div>' +
+                '<div class="col3" contenteditable></div>' +
+                '<div class="col4" contenteditable></div>' +
+                '<div class="col5" contenteditable></div>' +
+              '</li>';
+var addTbBtn = '<div class="tb-btn-group">' +
+                  '<button class="tb-btn-icon btn-tb-up"></button>' +
+                  '<button class="tb-btn-icon btn-tb-down"></button>' +
+                  '<button class="tb-btn-icon btn-tb-delete"></button>' +
+                '</div>';
+var addCCEidt = '<div class="edit-box con-box">' +                    
+                  '<textarea></textarea>' +
+                  '<img src="" alt="" class="btn-delete">' +
+                '</div>';
 
 $(".bt-toggle").click(function(){  
     $(this).toggleClass("on");
@@ -76,23 +74,52 @@ $(".modal-close").on('click',function(){
   $('body').css('overflow', 'hidden');      
 });
 
-$(document).on("click", ".edit-wrapper .table-wrapper .cc-table tbody tr", function(){
-  $(".edit-wrapper .table-wrapper .cc-table tbody tr").removeClass("on");
-  $(".edit-box").css("display","none");
-  $(this).addClass("on");
+$(document).on("click", ".edit-wrapper .table-wrapper .table-body li", function(){  
+  if($('.edit-box').length) {
+
+  } else {
+    $(".edit-wrapper .table-wrapper .table-body li").removeClass("on");
+    $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','false');
+    $(".edit-box").remove();  
+    $(".tb-btn-group").remove();
+    $(this).addClass("on");
+    $(this).append(addTbBtn); 
+    $(this).find(".col5").addClass("cc-detail");     
+    $(this).find("div").attr('contenteditable','true');
+  }
 })
 
 $(document).on("click",".btn-tb-up", function(){
-  $(this).closest('tr').before(addRow);
+  $(this).closest('li').before(addRow);
 })
 $(document).on("click",".btn-tb-down", function(){
-  $(this).closest('tr').after(addRow);
+  $(this).closest('li').after(addRow);
 })
 $(document).on("click",".btn-tb-delete", function(){
-  $(this).closest('tr').detach();
+  $(this).closest('li').detach();
 })
 $(document).on('dblclick', '.cc-detail', function(e) {
-  $(this).find(".edit-box").css("display","block");
-  $(this).find(".edit-box").text($(this).find(".cc-text").text());
+  $(this).append(addCCEidt);
+  $(this).find(".edit-box textarea").text($(this).find(".cc-text").text());
   $(this).find(".edit-box").focus();
+  $(this).attr('contenteditable','false');
+});
+
+$(document).on("click",".btn-delete", function(){  
+    $(this).closest('.edit-box').remove();
+})
+
+// video slider 진행영역 색상 지정
+$(".video-slider>input[type=range]").on("mousemove click", function (e) {
+  var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+  var percent = val * 100;
+
+  $(this).css('background-image',
+      '-webkit-gradient(linear, left top, right top, ' +
+      'color-stop(' + percent + '%, #6c36fb), ' +
+      'color-stop(' + percent + '%, #e4e1ee)' +
+      ')');
+
+  $(this).css('background-image',
+      '-moz-linear-gradient(left center, #6c36fb 0%, #6c36fb ' + percent + '%, #e4e1ee ' + percent + '%, #e4e1ee 100%)');
 });

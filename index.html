@@ -32,8 +32,19 @@
     <div class="main-wrapper">
       <div class="section">
         <div class="con-box media-wrapper">
-          <!-- 미디어플레이어 이미지로 임시 지정, 개발시 삭제 -->
-          <img src="./assets/img_player@3x.png" alt="">
+          <div class="video-box">            
+            <video id="video" class="screen" poster="./assets/img_sample@3x.png" src="" muted></video>
+          </div>
+          <div class="video-slider">
+            <input class="slider" type="range" min="1" max="100" value="50">
+          </div>
+          <div class="player-box">
+            <div class="play-left">
+              <div class="btn-play"></div>
+              <div class="play-time">00:13:04 / 01:22:12</div>
+            </div>
+            <button class="btn-faster">2.0X</button>
+          </div>
         </div>
         <div class="con-box sync-wrapper">
           <div class="sync-top">
@@ -85,280 +96,141 @@
         </div>
       </div>
       <div class="section">
-        <div class="list-wrapper">
-          <div class="table-wrapper">
-            <table class="cc-table">
-              <colgroup>
-                <col style="width: 60px">
-                <col style="width: 20%">
-                <col >
-              </colgroup>
-              <thead>
-                <tr>
-                  <th><input type="checkbox" name="" id="" checked> </th>
-                  <th colspan="2">자막생성 대상 목록</th>
-                </tr>
-                <tr></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" name="" id="" checked></td>                  
-                  <td>컨텐츠ID</td>
-                  <td>OOOOO</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" name="" id="" checked></td>                  
-                  <td>어셋ID</td>
-                  <td>OOOOO</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" name="" id="" checked></td>                  
-                  <td>어셋ID</td>
-                  <td>OOOOO</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" name="" id="" checked></td>                  
-                  <td>어셋ID</td>
-                  <td>OOOOO</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" name="" id="" checked></td>                  
-                  <td>어셋ID</td>
-                  <td>OOOOO</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" name="" id=""></td>                  
-                  <td>어셋ID</td>
-                  <td>OOOOO</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="list-wrapper">  
+          <div class="table-wrapper list-table">
+            <div class="table-header">
+              <div class="col1"><input type="checkbox" name="" id=""></div>
+              <div class="col2">자막생성 대상 목록</div>
+            </div>
+            <div class="v-blank"></div>
+            <ul class="table-body">
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">컨텐츠ID</div>
+                <div class="col3">OOOOO</div>
+              </li>              
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">어셋ID</div>
+                <div class="col3">OOOOO</div>
+              </li>  
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">어셋ID</div>
+                <div class="col3">OOOOO</div>
+              </li>  
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">어셋ID</div>
+                <div class="col3">OOOOO</div>
+              </li>  
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">어셋ID</div>
+                <div class="col3">OOOOO</div>
+              </li>  
+              <li>
+                <div class="col1"><input type="checkbox" name="" id=""></div>
+                <div class="col2">어셋ID</div>
+                <div class="col3">OOOOO</div>
+              </li>                
+            </ul>
+          </div>          
         </div>
         <div class="edit-wrapper">
-          <div class="table-wrapper">
-            <table class="cc-table">
-              <colgroup>
-                <col style="width: 114px">
-                <col style="width: 135px">
-                <col style="width: 135px">
-                <col style="width: 110px">
-                <col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>NO</th>
-                  <th>시작시간</th>
-                  <th>종료시간</th>
-                  <th>노출시간</th>
-                  <th>
-                    <div class="th-btn-add">
-                      자막 <div class="btn-line-add"></div>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <!-- 셀 더블클릭시 자막수정창이 보여짐. -->
-                      <div class="edit-box con-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="on">  <!-- 행 클릭시 class 'on' 으로 선택상태로 변경되고 아이콘버튼들이 보여짐. -->
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>                  
-                  <td>0043</td>
-                  <td>1:23:02 000</td>
-                  <td>1:23:05 042</td>
-                  <td>03 042</td>
-                  <td>
-                    <div class="cc-detail">
-                      <div class="cc-text">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                    
-                      <div class="tb-btn-group">
-                        <button class="tb-btn-icon btn-tb-up"></button>
-                        <button class="tb-btn-icon btn-tb-down"></button>
-                        <button class="tb-btn-icon btn-tb-delete"></button>        
-                      </div>
-                      <div class="edit-box" contenteditable="true">
-                        
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="table-wrapper cc-table">
+            <div class="table-header">
+              <div class="col1">NO</div>
+              <div class="col2">시작시간</div>
+              <div class="col3">종료시간</div>
+              <div class="col4">노출시간</div>
+              <div class="col5">자막 <img src="" alt="" class="btn-line-add"></div>
+            </div> 
+            <div class="v-blank"></div>
+            <ul class="table-body">
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li class="on">
+                <div class="col1" contenteditable>0043</div>
+                <div class="col2" contenteditable>1:23:02 000</div>
+                <div class="col3" contenteditable>1:23:05 042</div>
+                <div class="col4" contenteditable>03 042</div>
+                <div class="col5 cc-detail">
+                  <div class="cc-text" contenteditable>자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                  
+                  <!-- 셀 더블클릭시 자막수정창이 보여짐. -->
+                  <!-- <div class="edit-box con-box">                    
+                    <textarea></textarea>       
+                    <img src="" alt="" class="btn-delete">
+                  </div> -->
+                </div>                
+                <div class="tb-btn-group">
+                  <button class="tb-btn-icon btn-tb-up"></button>
+                  <button class="tb-btn-icon btn-tb-down"></button>
+                  <button class="tb-btn-icon btn-tb-delete"></button>        
+                </div>
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+              <li>
+                <div class="col1">0043</div>
+                <div class="col2">1:23:02 000</div>
+                <div class="col3">1:23:05 042</div>
+                <div class="col4">03 042</div>
+                <div class="col5">자막 내용이 표시 됩니다 ∠  자막 내용이 표시 됩니다</div>                
+              </li>  
+            </ul>           
           </div>
         </div>
       </div>
@@ -514,5 +386,8 @@
   <script src="../scripts/jquery-3.6.0.min.js"></script>
   <script src="../scripts/jquery-ui.min.js"></script>
   <script src="../scripts/script.js"></script>
+  <script>
+    $(".video-slider>input[type=range]").trigger("click");
+  </script>
 </body>
 </html>
