@@ -43,7 +43,16 @@
               <div class="btn-play"></div>
               <div class="play-time">00:13:04 / 01:22:12</div>
             </div>
-            <button class="btn-faster">2.0X</button>
+            <div class="select-list-wrapper">
+              <button class="btn-faster">2.0X</button>
+              <ul class="select-list">              
+                <li>0.8X</li>
+                <li>1.0X</li>
+                <li>1.2X</li>
+                <li>1.5X</li>
+                <li>2.0X</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="con-box sync-wrapper">
@@ -59,10 +68,23 @@
             </div>
             <div class="play-wrapper">
                <div class="btn-select">
-                블록선택 <div class="bt-toggle"></div>전체선택
+                블록선택 
+                <div class="toggle-wrapper">
+                  <input type="checkbox" class="toggle" id="toggle1" hidden> 
+                    <label for="toggle1" class="toggleSwitch">
+                      <span class="toggleButton"></span>
+                    </label>
+                </div> 전체선택
                </div>
                <div class="v-line"></div>
-               <div class="btn-auto">자동재생 <div class="bt-toggle on"></div></div>
+               <div class="btn-auto">자동재생 
+                <div class="toggle-wrapper">
+                  <input type="checkbox" class="toggle" id="toggle2" hidden> 
+                    <label for="toggle2" class="toggleSwitch">
+                      <span class="toggleButton"></span>
+                    </label>
+                </div>
+              </div>
             </div>
           </div>
           <div class="sync-detail">
@@ -98,42 +120,43 @@
       <div class="section">
         <div class="list-wrapper">  
           <div class="table-wrapper list-table">
-            <div class="table-header">
-              <div class="col1"><input type="checkbox" name="" id=""></div>
-              <div class="col2">자막생성 대상 목록</div>
+            <div class="table-header">              
+              <div class="col">콘텐츠 정보</div>
             </div>
             <div class="v-blank"></div>
             <ul class="table-body">
               <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">컨텐츠ID</div>
-                <div class="col3">OOOOO</div>
-              </li>              
-              <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">어셋ID</div>
-                <div class="col3">OOOOO</div>
+                <div class="col1">콘텐츠명</div>
+                <div class="col2">(소장용) 기생충</div>
               </li>  
               <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">어셋ID</div>
-                <div class="col3">OOOOO</div>
+                <div class="col1">콘텐츠ID</div>
+                <div class="col2">10000083800002</div>
               </li>  
               <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">어셋ID</div>
-                <div class="col3">OOOOO</div>
+                <div class="col1">에셋명</div>
+                <div class="col2">(소장용) 기생충</div>
               </li>  
               <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">어셋ID</div>
-                <div class="col3">OOOOO</div>
+                <div class="col1">에셋ID</div>
+                <div class="col2">10000083800003</div>
               </li>  
               <li>
-                <div class="col1"><input type="checkbox" name="" id=""></div>
-                <div class="col2">어셋ID</div>
-                <div class="col3">OOOOO</div>
-              </li>                
+                <div class="col1">시리즈명</div>
+                <div class="col2">-</div>
+              </li>  
+              <li>
+                <div class="col1">장르</div>
+                <div class="col2">영화</div>
+              </li>                                          
+              <li>
+                <div class="col1">세부장르</div>
+                <div class="col2">드라마</div>
+              </li>  
+              <li>
+                <div class="col1">자막언어</div>
+                <div class="col2">한국어</div>
+              </li>  
             </ul>
           </div>          
         </div>

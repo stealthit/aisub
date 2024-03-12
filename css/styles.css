@@ -43,19 +43,19 @@ body {
   background-position: center;
 }
 .wrapper .gnb .gnb-right .btn-gnb.btn-gnb-back {
-  background-image: url(../assets/ic_top_back@3x.png);
+  background-image: url(../assets/ic_top_back.svg);
 }
 .wrapper .gnb .gnb-right .btn-gnb.btn-gnb-restore {
-  background-image: url(../assets/ic_top_restore@3x.png);
+  background-image: url(../assets/ic_top_restore.svg);
 }
 .wrapper .gnb .gnb-right .btn-gnb.btn-gnb-save {
-  background-image: url(../assets/ic_top_save@3x.png);
+  background-image: url(../assets/ic_top_save.svg);
 }
 .wrapper .gnb .gnb-right .btn-gnb.btn-gnb-complete {
-  background-image: url(../assets/ic_top_complete@3x.png);
+  background-image: url(../assets/ic_top_complete.svg);
 }
 .wrapper .gnb .gnb-right .btn-gnb.btn-gnb-help {
-  background-image: url(../assets/ic_top_help@3x.png);
+  background-image: url(../assets/ic_top_help.svg);
 }
 .wrapper .main-wrapper {
   height: 1000px;
@@ -110,17 +110,56 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
-.wrapper .main-wrapper .media-wrapper .player-box .btn-faster {
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper {
+  position: relative;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper .btn-faster {
+  width: 50px;
+  height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 10px 7px 12px;
   border-radius: 8px;
   border: solid 1px #0ecbec;
   background-color: #e6fafe;
   line-height: 36px;
   font-size: 14px;
   font-weight: 500;
+  color: #0ecbec;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list {
+  display: none;
+  width: 50px;
+  top: 41px;
+  z-index: 3;
+  position: absolute;
+  border: 1px solid #0ecbec;
+  border-radius: 8px;
+  background: #fff;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list.open {
+  display: block;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list li {
+  cursor: pointer;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list li:not(:last-child) {
+  border-bottom: 1px dashed #0ecbec;
+}
+.wrapper .main-wrapper .media-wrapper .player-box .select-list-wrapper ul.select-list li:hover {
+  background-color: #e6fafe;
   color: #0ecbec;
 }
 .wrapper .main-wrapper .sync-wrapper {
@@ -291,13 +330,9 @@ body {
 .wrapper .main-wrapper .list-wrapper .list-table .table-header {
   display: flex;
 }
-.wrapper .main-wrapper .list-wrapper .list-table .table-header .col1 {
-  width: 60px;
-}
-.wrapper .main-wrapper .list-wrapper .list-table .table-header .col2 {
-  width: 390px;
-  justify-content: initial;
-  padding-left: 100px;
+.wrapper .main-wrapper .list-wrapper .list-table .table-header .col {
+  width: 100%;
+  text-align: center;
 }
 .wrapper .main-wrapper .list-wrapper .list-table .table-header input[type=checkbox] {
   border: 2px solid #fff;
@@ -306,8 +341,18 @@ body {
 .wrapper .main-wrapper .list-wrapper .list-table .table-header input[type=checkbox]::before {
   content: url("../assets/bt_check_white.png");
 }
+.wrapper .main-wrapper .list-wrapper .list-table .table-body {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+  border: solid 1px #e4e1ee;
+  background: #fff;
+}
 .wrapper .main-wrapper .list-wrapper .list-table .table-body li {
   display: flex;
+  box-shadow: none;
+  border-radius: initial;
+  border: initial;
+  border-bottom: 1px solid #e4e1ee;
 }
 .wrapper .main-wrapper .list-wrapper .list-table .table-body li > div {
   display: flex;
@@ -315,15 +360,13 @@ body {
   align-items: center;
 }
 .wrapper .main-wrapper .list-wrapper .list-table .table-body li .col1 {
-  width: 60px;
+  width: 130px;
 }
-.wrapper .main-wrapper .list-wrapper .list-table .table-body li .col2 {
-  width: 90px;
-  justify-content: flex-start;
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li:last-child {
+  border-bottom: none;
 }
-.wrapper .main-wrapper .list-wrapper .list-table .table-body li .col3 {
-  width: 300px;
-  justify-content: flex-start;
+.wrapper .main-wrapper .list-wrapper .list-table .table-body li:first-child {
+  font-weight: bold;
 }
 .wrapper .main-wrapper .edit-wrapper {
   height: 430px;
@@ -430,13 +473,13 @@ body {
   background-position: center;
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-up {
-  background-image: url(../assets/bt_line_add_up@3x.png);
+  background-image: url(../assets/bt_line_add_up.svg);
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-down {
-  background-image: url(../assets/bt_line_add_down@3x.png);
+  background-image: url(../assets/bt_line_add_down.svg);
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-delete {
-  background-image: url(../assets/bt_line_delete@3x.png);
+  background-image: url(../assets/bt_line_delete.svg);
 }
 
 .con-box {
@@ -515,6 +558,36 @@ input[type=checkbox]:checked::before {
   transform: scale(1) translate(-50%, -47.5%);
 }
 
+.toggle-wrapper .toggleSwitch {
+  width: 40px;
+  height: 22px;
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  background-color: #e4e1ee;
+  cursor: pointer;
+}
+.toggle-wrapper .toggleSwitch .toggleButton {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #fff;
+}
+.toggle-wrapper .toggle:checked ~ .toggleSwitch {
+  background: #6c36fb;
+}
+.toggle-wrapper .toggle:checked ~ .toggleSwitch .toggleButton {
+  left: calc(100% - 20px);
+  background: #fff;
+}
+.toggle-wrapper .toggleSwitch, .toggle-wrapper .toggleButton {
+  transition: all 0.2s ease-in;
+}
+
 .v-slider {
   width: 20px;
   position: relative;
@@ -550,7 +623,7 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   width: 20px; /* 슬라이더 핸들 길이 */
   height: 20px; /* 슬라이더 핸들 높이 */
   border-radius: 50%; /* 핸들 모양을 원모양으로 만들기 위함 */
-  background-image: url(../assets/bt_slider@3x.png); /* 슬라이더 핸들 색상 */
+  background-image: url(../assets/bt_slider.svg); /* 슬라이더 핸들 색상 */
   background-size: 20px;
   background-repeat: no-repeat;
   cursor: pointer; /* 슬라이더 핸들에 마우스를 갖다대면 포인터로 변경 */
@@ -594,6 +667,8 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
   border: solid 1px #e4e1ee;
   background-color: #fff;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 #msgBoxModal {
@@ -640,13 +715,13 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   padding-top: 40px;
 }
 #msgConfirmModal.success .msgIcon {
-  content: url(../assets/ic_pop_complete@3x.png);
+  content: url(../assets/ic_pop_complete.svg);
 }
 #msgConfirmModal.success .msgText::before {
   content: "저장을 성공하였습니다.";
 }
 #msgConfirmModal.fail .msgIcon {
-  content: url(../assets/ic_pop_alert@3x.png);
+  content: url(../assets/ic_pop_alert.svg);
 }
 #msgConfirmModal.fail .msgText::before {
   content: "저장을 실패하였습니다.";
@@ -754,19 +829,8 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   color: #fff;
 }
 
-.bt-toggle {
-  cursor: pointer;
-  content: url(../assets/bt_toggle_off@3x.png);
-  width: 40px;
-  height: 22px;
-  cursor: pointer;
-}
-.bt-toggle.on {
-  content: url(../assets/bt_toggle_on@3x.png);
-}
-
 .ic-top-symbol {
-  content: url(../assets/ic_top_symbol@3x.png);
+  content: url(../assets/ic_top_symbol.svg);
   width: 40px;
   height: 40px;
 }
@@ -781,7 +845,7 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   cursor: pointer;
   position: absolute;
   right: 10px;
-  content: url(../assets/bt_line_add@3x.png);
+  content: url(../assets/bt_line_add.svg);
   width: 30px;
   height: 30px;
 }
@@ -789,21 +853,24 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
 .bt-point {
   position: absolute;
   cursor: pointer;
-  content: url(../assets/bt_slider@3x.png);
+  content: url(../assets/bt_slider.svg);
   width: 20px;
   height: 20px;
 }
 
 .btn-play {
   cursor: pointer;
-  content: url(../assets/bt_player_play@3x.png);
+  content: url(../assets/bt_player_play.svg);
   width: 36px;
   height: 36px;
+}
+.btn-play.stop {
+  content: url(../assets/bt_player_pause.svg);
 }
 
 .btn-delete {
   cursor: pointer;
-  content: url(../assets/bt_delete@3x.png);
+  content: url(../assets/bt_delete.svg);
   width: 14px;
   height: 14px;
 }

@@ -42,19 +42,19 @@ body {
         background-position: center;
         
         &.btn-gnb-back {
-          background-image: url(../assets/ic_top_back@3x.png);
+          background-image: url(../assets/ic_top_back.svg);
         }
         &.btn-gnb-restore {
-          background-image: url(../assets/ic_top_restore@3x.png);
+          background-image: url(../assets/ic_top_restore.svg);
         }
         &.btn-gnb-save {
-          background-image: url(../assets/ic_top_save@3x.png);
+          background-image: url(../assets/ic_top_save.svg);
         }
         &.btn-gnb-complete {
-          background-image: url(../assets/ic_top_complete@3x.png);
+          background-image: url(../assets/ic_top_complete.svg);
         }
         &.btn-gnb-help {
-          background-image: url(../assets/ic_top_help@3x.png);
+          background-image: url(../assets/ic_top_help.svg);
         }
       }
     }
@@ -127,16 +127,51 @@ body {
             font-weight: 500;
           }
         }
-        .btn-faster {          
-          @include flex_center();
-          padding: 8px 10px 7px 12px;
-          border-radius: 8px;
-          border: solid 1px #0ecbec;
-          background-color: #e6fafe;
-          line-height: 36px;
-          font-size: 14px;
-          font-weight: 500;
-          color: #0ecbec;
+        .select-list-wrapper {
+          position: relative;
+          .btn-faster { 
+            width: 50px;
+            height: 36px;         
+            @include flex_center();
+            // padding: 8px 10px 7px 12px;
+            border-radius: 8px;
+            border: solid 1px #0ecbec;
+            background-color: #e6fafe;
+            line-height: 36px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0ecbec;
+          }
+          ul.select-list {
+            display: none;
+            &.open {display: block;}
+            width: 50px;
+            top: 41px;
+            z-index: 3;
+            position: absolute;
+            border: 1px solid #0ecbec;
+            border-radius: 8px;
+            background: #fff;
+
+            li {
+              cursor: pointer;
+              height: 36px;
+              @include flex_center();
+              &:first-child {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+              }
+              &:last-child {
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+              }
+              &:not(:last-child) {border-bottom: 1px dashed #0ecbec;}   
+              &:hover {                
+                background-color: #e6fafe;
+                color: #0ecbec;
+              }         
+            }
+          }
         }
       }
     }
@@ -309,8 +344,7 @@ body {
       .list-table {
         .table-header {
           display: flex;
-          .col1 {width: 60px;}
-          .col2 {width: 390px;justify-content: initial;padding-left: 100px;}     
+          .col {width: 100%;text-align: center;}          
           
           input[type="checkbox"] {
             border: 2px solid #fff;  
@@ -320,13 +354,24 @@ body {
             }
           }
         }
-        .table-body {          
+        .table-body {  
+          border-radius: 12px;
+          box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
+          border: solid 1px #e4e1ee; 
+          background: #fff;
           li {
-            display: flex;            
+            display: flex;    
+            box-shadow: none;        
             &>div {display: flex;justify-content: center;align-items: center;}
-            .col1 {width: 60px;}
-            .col2 {width: 90px;justify-content: flex-start;}          
-            .col3 {width: 300px;justify-content: flex-start;}
+            .col1 {width: 130px;}              
+            border-radius: initial;
+            border: initial;
+            border-bottom: 1px solid #e4e1ee;
+            &:last-child {
+              border-bottom: none;
+            }  
+            
+            &:first-child {font-weight: bold;}
           }
         }
       }
@@ -421,13 +466,13 @@ body {
                 background-position: center;
                 
                 &.btn-tb-up {
-                  background-image: url(../assets/bt_line_add_up@3x.png);
+                  background-image: url(../assets/bt_line_add_up.svg);
                 }
                 &.btn-tb-down {
-                  background-image: url(../assets/bt_line_add_down@3x.png);
+                  background-image: url(../assets/bt_line_add_down.svg);
                 }
                 &.btn-tb-delete {
-                  background-image: url(../assets/bt_line_delete@3x.png);
+                  background-image: url(../assets/bt_line_delete.svg);
                 }                    
               }
             }
@@ -508,6 +553,44 @@ input[type="checkbox"] {
   }
 }
 
+.toggle-wrapper {
+  .toggleSwitch {
+    width: 40px;
+    height: 22px;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    background-color: #e4e1ee;
+    // box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+    cursor: pointer;
+    // margin: 30px;
+  }
+  
+  .toggleSwitch .toggleButton {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #fff;
+  }
+  
+  .toggle:checked ~ .toggleSwitch {
+    background: #6c36fb;
+  }
+  
+  .toggle:checked ~ .toggleSwitch .toggleButton {
+    left: calc(100% - 20px);
+    background: #fff;
+  }
+  
+  .toggleSwitch, .toggleButton {
+    transition: all 0.2s ease-in;
+  }
+}
+
 .v-slider {
   width: 20px;
   position: relative;
@@ -540,7 +623,7 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   width: 20px; /* 슬라이더 핸들 길이 */
   height: 20px; /* 슬라이더 핸들 높이 */
   border-radius: 50%; /* 핸들 모양을 원모양으로 만들기 위함 */
-  background-image: url(../assets/bt_slider@3x.png); /* 슬라이더 핸들 색상 */  
+  background-image: url(../assets/bt_slider.svg); /* 슬라이더 핸들 색상 */  
   background-size: 20px;
   background-repeat: no-repeat;
   cursor: pointer; /* 슬라이더 핸들에 마우스를 갖다대면 포인터로 변경 */
@@ -576,6 +659,8 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
       box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
       border: solid 1px #e4e1ee;
       background-color: #fff;
+      font-size: 16px;
+  font-weight: 500;
     }
   }
 }
@@ -624,11 +709,11 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   height: 180px;
   padding-top: 40px;
   &.success {
-    .msgIcon {content: url(../assets/ic_pop_complete@3x.png);}
+    .msgIcon {content: url(../assets/ic_pop_complete.svg);}
     .msgText::before {content:"저장을 성공하였습니다."}
   }
   &.fail {
-    .msgIcon {content: url(../assets/ic_pop_alert@3x.png);}
+    .msgIcon {content: url(../assets/ic_pop_alert.svg);}
     .msgText::before {content:"저장을 실패하였습니다."}
   }
   .msgIcon {
@@ -733,19 +818,8 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
 }
 
 // images
-.bt-toggle {  
-  cursor: pointer;
-  content: url(../assets/bt_toggle_off@3x.png);
-  width: 40px;
-  height: 22px;
-  cursor: pointer;  
-  &.on {
-    content: url(../assets/bt_toggle_on@3x.png);
-  }
-}
-
 .ic-top-symbol {  
-  content: url(../assets/ic_top_symbol@3x.png);
+  content: url(../assets/ic_top_symbol.svg);
   width: 40px;
   height: 40px;  
 }
@@ -759,26 +833,30 @@ Firefox 브라우저를 위해서는 -moz- 를 사용하세요 */
   cursor: pointer;
   position: absolute;  
   right: 10px;
-  content: url(../assets/bt_line_add@3x.png);
+  content: url(../assets/bt_line_add.svg);
   width: 30px;
   height: 30px;  
 }
 .bt-point {
   position: absolute;
   cursor: pointer;
-  content: url(../assets/bt_slider@3x.png);
+  content: url(../assets/bt_slider.svg);
   width: 20px;
   height: 20px;  
 }
 .btn-play {  
   cursor: pointer;    
-  content: url(../assets/bt_player_play@3x.png);
+  content: url(../assets/bt_player_play.svg);
   width: 36px;
   height: 36px;  
+
+  &.stop {
+    content: url(../assets/bt_player_pause.svg);
+  }
 }
 .btn-delete {  
   cursor: pointer;    
-  content: url(../assets/bt_delete@3x.png);
+  content: url(../assets/bt_delete.svg);
   width: 14px;
   height: 14px;  
 }

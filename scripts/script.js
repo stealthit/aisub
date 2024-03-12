@@ -24,6 +24,10 @@ $(".lang-wrapper .btn-lang").on("click", function(){
   $(this).addClass("on");  
 })
 
+$(".btn-play").on("click", function(){
+  $(this).toggleClass("stop");
+})
+
 $(".btn-line-add").on("click", function(){
   $(".edit-wrapper .table-wrapper .cc-table tbody").append(addRow);
 })
@@ -74,12 +78,11 @@ $(".modal-close").on('click',function(){
   $('body').css('overflow', 'hidden');      
 });
 
-$(document).on("click", ".edit-wrapper .table-wrapper .table-body li", function(){  
+$(document).on("click", ".edit-wrapper .table-wrapper .table-body li", function(){      
   if($('.edit-box').length) {
-
   } else {
     $(".edit-wrapper .table-wrapper .table-body li").removeClass("on");
-    $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','false');
+    // $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','false');
     $(".edit-box").remove();  
     $(".tb-btn-group").remove();
     $(this).addClass("on");
@@ -90,23 +93,30 @@ $(document).on("click", ".edit-wrapper .table-wrapper .table-body li", function(
 })
 
 $(document).on("click",".btn-tb-up", function(){
+  $(".edit-box").remove();      
   $(this).closest('li').before(addRow);
 })
 $(document).on("click",".btn-tb-down", function(){
+  $(".edit-box").remove();  
   $(this).closest('li').after(addRow);
 })
 $(document).on("click",".btn-tb-delete", function(){
+  $(".edit-box").remove();    
   $(this).closest('li').detach();
 })
 $(document).on('dblclick', '.cc-detail', function(e) {
-  $(this).append(addCCEidt);
-  $(this).find(".edit-box textarea").text($(this).find(".cc-text").text());
-  $(this).find(".edit-box").focus();
-  $(this).attr('contenteditable','false');
+  if ($(this).closest("li").hasClass('on')) {
+    $(this).append(addCCEidt);
+    $(this).find(".edit-box textarea").text($(this).find(".cc-text").text());
+    $(this).find(".edit-box textarea").focus();
+    $(this).attr('contenteditable','false');    
+    $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','false');
+  }
 });
 
 $(document).on("click",".btn-delete", function(){  
     $(this).closest('.edit-box').remove();
+    $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','true');
 })
 
 // video slider 진행영역 색상 지정
@@ -123,3 +133,14 @@ $(".video-slider>input[type=range]").on("mousemove click", function (e) {
   $(this).css('background-image',
       '-moz-linear-gradient(left center, #6c36fb 0%, #6c36fb ' + percent + '%, #e4e1ee ' + percent + '%, #e4e1ee 100%)');
 });
+
+
+// 배속 선택 버튼
+$(".btn-faster").on("click", function(){
+  $(".select-list").toggleClass("open");
+})
+
+$(".select-list li").on("click", function(){
+  $(".btn-faster").text($(this).text());
+  $(".select-list").removeClass("open");
+})
