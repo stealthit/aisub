@@ -179,7 +179,8 @@ body {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      padding: 16px 20px 20px ;
+      padding: 16px 20px 10px 20px ;
+      height: 460px;
       flex: 1;
       
       .sync-top {
@@ -330,6 +331,10 @@ body {
         }
       }
       .sync-text {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        max-height: 80px;
+        overflow: auto;
         font-size: 18px;
         font-weight: 500;        
         text-align: center;
@@ -381,6 +386,7 @@ body {
       height: 430px;
       flex: 1;
       .cc-table {
+        position: relative;
         .table-header {
           display: flex;
           .col1 {width: 115px;}
@@ -400,22 +406,26 @@ body {
             .col1 {width: 115px;}
             .col2 {width: 120px;} 
             .col3 {width: 120px;}             
-            .col4 {width: 120px;}  
-            .col5 {
+            .col4 {width: 150px;padding-right: 30px;}  
+            .col5 {              
               height: 100%;
-              width: 750px;
-              overflow: hidden;              
+              // width: 750px;
+              overflow: hidden;  
+              // padding-right: 10px;            
               // flex: 1;  
               justify-content: flex-start; 
-              padding-left: 30px; 
+              // padding-left: 30px; 
               .cc-text {
+                position: relative;
                 overflow: hidden;     
-                display: flex;
-                align-items: center; 
-                height: 100%;
-                width: 100%;
-                max-width: 750px;
+                // display: flex;
+                // align-items: center; 
+                // height: 100%;
+                // width: 100%;
+                max-width: 830px;
+                line-height: 44px;
                 white-space: nowrap;
+                // z-index: 3;                                
               }              
 
               .edit-box {
@@ -441,12 +451,47 @@ body {
                   color: #000;
                 }
               }
-            }
+
+              &.start::before {   
+                content: '';                               
+                position: absolute;
+                top: 0;
+                left: 505px;
+                height: 100%;
+                width: 50px;
+                opacity: 0.1;
+                background-image: linear-gradient(to left, rgba(0, 0, 0, 0), #000);                       
+              }
+              &.end::after {   
+                content: '';                  
+                position: absolute;
+                top: 0;
+                right: 1px;
+                height: 100%;
+                width: 50px;
+                opacity: 0.1;
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #000);                        
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+              }
+            }            
 
             &.on {
               box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
               border: solid 1px #6c36fb;
               background-color: #e6e1fa;
+
+              .col5 {
+                width: 720px;
+                &.start::before {
+                  background-image: linear-gradient(to left, rgba(108, 54, 251, 0), #4506ed);
+                }
+                &.end::after {
+                  right: 117px;
+                  border-radius: initial;
+                  background-image: linear-gradient(to right, rgba(108, 54, 251, 0), #4506ed);
+                }
+              }
             }
 
             .tb-btn-group {                
@@ -476,7 +521,18 @@ body {
                 }                    
               }
             }
-          }
+          }          
+        }
+        .tb-endline {
+          position: absolute;  
+          height: 30px;
+          width: 100%;
+          bottom: 0;
+          margin: 34px 0 0;
+          padding: 10px 0 0;
+          opacity: 0.1;
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000); 
+          z-index: 3;
         } 
       }
     }

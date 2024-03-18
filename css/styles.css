@@ -166,7 +166,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 16px 20px 20px;
+  padding: 16px 20px 10px 20px;
+  height: 460px;
   flex: 1;
 }
 .wrapper .main-wrapper .sync-wrapper .sync-top {
@@ -318,6 +319,10 @@ body {
   left: 0;
 }
 .wrapper .main-wrapper .sync-wrapper .sync-text {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  max-height: 80px;
+  overflow: auto;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
@@ -372,6 +377,9 @@ body {
   height: 430px;
   flex: 1;
 }
+.wrapper .main-wrapper .edit-wrapper .cc-table {
+  position: relative;
+}
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-header {
   display: flex;
 }
@@ -410,22 +418,19 @@ body {
   width: 120px;
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col4 {
-  width: 120px;
+  width: 150px;
+  padding-right: 30px;
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 {
   height: 100%;
-  width: 750px;
   overflow: hidden;
   justify-content: flex-start;
-  padding-left: 30px;
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 .cc-text {
+  position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  max-width: 750px;
+  max-width: 830px;
+  line-height: 44px;
   white-space: nowrap;
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5 .edit-box {
@@ -450,10 +455,43 @@ body {
   font-weight: 500;
   color: #000;
 }
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5.start::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 505px;
+  height: 100%;
+  width: 50px;
+  opacity: 0.1;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), #000);
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .col5.end::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 1px;
+  height: 100%;
+  width: 50px;
+  opacity: 0.1;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #000);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li.on {
   box-shadow: 0 4px 10px 0 rgba(164, 171, 216, 0.2);
   border: solid 1px #6c36fb;
   background-color: #e6e1fa;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li.on .col5 {
+  width: 720px;
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li.on .col5.start::before {
+  background-image: linear-gradient(to left, rgba(108, 54, 251, 0), #4506ed);
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .table-body li.on .col5.end::after {
+  right: 117px;
+  border-radius: initial;
+  background-image: linear-gradient(to right, rgba(108, 54, 251, 0), #4506ed);
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group {
   display: flex;
@@ -480,6 +518,17 @@ body {
 }
 .wrapper .main-wrapper .edit-wrapper .cc-table .table-body li .tb-btn-group .tb-btn-icon.btn-tb-delete {
   background-image: url(../assets/bt_line_delete.svg);
+}
+.wrapper .main-wrapper .edit-wrapper .cc-table .tb-endline {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  bottom: 0;
+  margin: 34px 0 0;
+  padding: 10px 0 0;
+  opacity: 0.1;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+  z-index: 3;
 }
 
 .con-box {

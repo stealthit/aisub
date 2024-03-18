@@ -2,7 +2,7 @@ var addRow = '<li>' +
                 '<div class="col1" contenteditable></div>' +
                 '<div class="col2" contenteditable></div>' +
                 '<div class="col3" contenteditable></div>' +
-                '<div class="col4" contenteditable></div>' +
+                '<div class="col4" ></div>' +
                 '<div class="col5" contenteditable></div>' +
               '</li>';
 var addTbBtn = '<div class="tb-btn-group">' +
@@ -85,10 +85,11 @@ $(document).on("click", ".edit-wrapper .table-wrapper .table-body li", function(
     // $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','false');
     $(".edit-box").remove();  
     $(".tb-btn-group").remove();
+    $(".col5").removeClass("cc-detail");
     $(this).addClass("on");
     $(this).append(addTbBtn); 
     $(this).find(".col5").addClass("cc-detail");     
-    $(this).find("div").attr('contenteditable','true');
+    $(this).find("div:not(.col4)").attr('contenteditable','true');
   }
 })
 
@@ -105,6 +106,7 @@ $(document).on("click",".btn-tb-delete", function(){
   $(this).closest('li').detach();
 })
 $(document).on('dblclick', '.cc-detail', function(e) {
+  if ($(this).find(".edit-box").length > 0) {exit();}
   if ($(this).closest("li").hasClass('on')) {
     $(this).append(addCCEidt);
     $(this).find(".edit-box textarea").text($(this).find(".cc-text").text());
@@ -116,7 +118,7 @@ $(document).on('dblclick', '.cc-detail', function(e) {
 
 $(document).on("click",".btn-delete", function(){  
     $(this).closest('.edit-box').remove();
-    $(".edit-wrapper .table-wrapper .table-body li div").attr('contenteditable','true');
+    $(".edit-wrapper .table-wrapper .table-body li div:not(.col4)").attr('contenteditable','true');        
 })
 
 // video slider 진행영역 색상 지정
@@ -144,3 +146,25 @@ $(".select-list li").on("click", function(){
   $(".btn-faster").text($(this).text());
   $(".select-list").removeClass("open");
 })
+
+$(".cc-text").on("mousewheel", function(event, delta) {
+  this.scrollLeft -= (delta * 30);    
+  
+  event.preventDefault();
+});
+
+$(".cc-text").on("scroll", function(event, delta) {
+  var scrStart = 0;
+  var scrEnd = $(this).outerWidth();
+
+  if (this.scrollLeft > scrStart) {
+    $(this).parent().addClass("start");
+  }
+  else $(this).parent().removeClass("start");
+
+  if (($(this)[0].scrollWidth - this.scrollLeft) > scrEnd) {
+    $(this).parent().addClass("end");
+  }
+  else $(this).parent().removeClass("end");
+})
+
