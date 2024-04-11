@@ -33,6 +33,7 @@ body {
       align-items: center;
       gap: 20px;
       .btn-gnb {
+        position: relative;
         width: 46px;
         height: 46px;        
         background-color: #3c3a7b;
@@ -55,6 +56,43 @@ body {
         }
         &.btn-gnb-help {
           background-image: url(../assets/ic_top_help.svg);
+        }
+
+        /* Tooltip text */
+        .tooltiptext {
+          visibility: hidden;
+          width: 80px;
+          background-color: #e6e1fa;
+          color: #121131;
+          text-align: center;
+          border-radius: 6px;
+          padding: 8px 0;
+          position: absolute;
+          z-index: 1;
+          top: 110%; /* Position tooltip below the element */
+          left: 50%;
+          margin-left: -40px; /* Use half of the width value */
+          opacity: 0;
+          transition: opacity 0.3s;
+          box-shadow: 0px 0px 6px 0px rgba(60, 58, 123, 0.3); /* Add shadow effect */
+        }
+
+        /* Tooltip arrow */
+        .tooltiptext::after {
+          content: "";
+          position: absolute;
+          bottom: 100%; /* Arrow on top of the tooltip */
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent #e6e1fa transparent; /* Arrow color and direction */
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        &:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
         }
       }
     }
@@ -335,10 +373,11 @@ body {
         scrollbar-width: none; /* Firefox */
         max-height: 80px;
         overflow: auto;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 500;        
         text-align: center;
         color: #000;
+        line-height: 1.4;
       }
     }
 

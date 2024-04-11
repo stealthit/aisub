@@ -21,12 +21,13 @@
         <div class="ic-top-symbol"></div>
         <div class="gnb-title">자막편집</div>
       </div>
+      <!-- 2024.4.11 tooltiptext 추가 -->
       <div class="gnb-right">
-        <button class="btn-gnb btn-gnb-back"></button>
-        <button class="btn-gnb btn-gnb-restore"></button>        
-        <button class="btn-gnb btn-gnb-save" onclick="openMsgBox();"></button>
-        <button class="btn-gnb btn-gnb-complete"></button>
-        <button class="btn-gnb btn-gnb-help" onclick="openShortcutKey();"></button>
+        <button class="btn-gnb btn-gnb-back"><span class="tooltiptext">실행취소</span></button>
+        <button class="btn-gnb btn-gnb-restore"><span class="tooltiptext">다시실행</span></button>        
+        <button class="btn-gnb btn-gnb-save" onclick="openMsgBox();"><span class="tooltiptext">임시저장</span></button>
+        <button class="btn-gnb btn-gnb-complete"><span class="tooltiptext">편집완료</span></button>
+        <button class="btn-gnb btn-gnb-help" onclick="openShortcutKey();"><span class="tooltiptext">가이드</span></button>
       </div>
     </div>
     <div class="main-wrapper">
@@ -134,11 +135,7 @@
               <li>
                 <div class="col1">콘텐츠ID</div>
                 <div class="col2">10000083800002</div>
-              </li>  
-              <li>
-                <div class="col1">에셋명</div>
-                <div class="col2">(소장용) 기생충</div>
-              </li>  
+              </li>                
               <li>
                 <div class="col1">에셋ID</div>
                 <div class="col2">10000083800003</div>
